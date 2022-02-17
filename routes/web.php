@@ -102,6 +102,11 @@ Route::middleware(['auth', 'verified'])->group(function() {
         });
     });
 
+    Route::namespace('Casting')->group(function() {
+        Route::resource('/melting', 'MeltingController');
+        Route::resource('/pouring', 'PouringController');
+    });
+
     Route::namespace('Employee')->group(function() {
         Route::middleware('permission:view-recruitment')->group(function() {
             Route::resource('recruitment', 'RecruitmentController');
